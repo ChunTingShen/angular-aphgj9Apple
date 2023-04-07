@@ -1,0 +1,39 @@
+<div class="searchBox">
+  <input type="text" placeholder="search input" [(ngModel)]="searchText" />
+  <button mat-button color="primary" (click)="getAlbum(searchText)">
+    Search
+  </button>
+</div>
+<div>Album search:</div>
+<div>Number of Search Results: {{ resultCount }}</div>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Actions Buttons</mat-card-title>
+    <mat-card-subtitle>Start</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions>
+    <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions>
+</mat-card>
+
+<div class="resultsBox">
+  <div class="bookResult" *ngFor="let item of albumArray">
+    <div>
+      <a href="{{ item.collectionViewUrl }}"
+        ><img src="{{ item.artworkUrl60 }}"
+      /></a>
+    </div>
+
+    <div class="bookName">
+      <b>{{ item.collectionName }}</b>
+    </div>
+    <div class="bookName">
+      <a href="{{ item.artistViewUrl }}">{{ item.artistName }}</a>
+    </div>
+    <div class="bookName">
+      {{ item.currency }} <span>$ {{ item.collectionPrice }}</span>
+    </div>
+  </div>
+</div>
