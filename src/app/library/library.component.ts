@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService } from '../book.service';
-import { BooksObj, Book, Author, Album, AlbumsObj } from '../book';
+import { Author, Album, AlbumsObj } from '../book';
 import { debounceTime, filter, map, tap } from 'rxjs/operators';
 @Component({
   selector: 'app-library',
@@ -11,17 +11,35 @@ export class LibraryComponent implements OnInit {
   constructor(private book: BookService) {}
 
   searchText: string = '';
-  selectedBook: Book = {
-    all_authors: '',
-    title: '',
-    authors: null,
-  };
 
   albumArray: Album[];
+  selectedAlbum: Album = {
+    amgArtistId: null,
+    artistId: null,
+    artistName: '',
+    artistViewUrl: '',
+    artworkUrl100: '', // jpg
+    artworkUrl60: '', // smaller jpg
+    collectionCensoredName: '',
+    collectionExplicitness: '',
+    collectionId: null,
+    collectionName: '',
+    collectionPrice: null,
+    collectionType: '',
+    collectionViewUrl: '',
+    contentAdvisoryRating: '',
+    copyright: '',
+    country: '',
+    currency: '',
+    primaryGenreName: '',
+    releaseDate: '', // or Date?
+    trackCount: null,
+    wrapperType: '',
+  };
+
   resultCount: number;
 
   ngOnInit() {
-    // this.getData();
     this.getAlbum('');
   }
 
@@ -32,5 +50,11 @@ export class LibraryComponent implements OnInit {
       this.albumArray = res.results;
       console.log(this.albumArray);
     });
+  }
+
+  onSelect(album: Album) {
+    if (album) {
+      this.selectedAlbum.collectionName = album.collectionName;
+    }
   }
 }

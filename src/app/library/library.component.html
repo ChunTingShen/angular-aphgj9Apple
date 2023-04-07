@@ -2,7 +2,7 @@
   <input
     class="searchInput"
     type="text"
-    placeholder="search input"
+    placeholder="Search Input"
     [(ngModel)]="searchText"
   />
   <button mat-button color="primary" (click)="getAlbum(searchText)">
@@ -16,7 +16,15 @@
 </div>
 
 <div class="resultsBox">
-  <div class="bookResult" *ngFor="let item of albumArray">
+  <div
+    class="bookResult"
+    *ngFor="let item of albumArray"
+    (click)="onSelect(item)"
+    [ngStyle]="{
+      'border-color':
+        selectedAlbum.collectionName === item.collectionName ? 'green' : 'white'
+    }"
+  >
     <div>
       <a href="{{ item.collectionViewUrl }}"
         ><img src="{{ item.artworkUrl60 }}"

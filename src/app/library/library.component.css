@@ -1,26 +1,16 @@
-.selectedBox {
-  display: block;
-  width: 90%;
-  height: 10%;
-  /* background-color: grey; */
-
+.searchInput {
+  border-radius: 20px;
   padding: 10px;
-  margin: 10px;
-  border-style: solid;
-  border-width: 1px;
-  border-color: black;
 }
-
-/* .searchInput {
-  margin-left: 50%;
-} */
 
 .bookResult {
   padding: 10px;
   margin: 10px;
   border-style: solid;
+  border-radius: 10px;
   border-width: 1px;
-  border-color: black;
+  border-color: #666666;
+  box-shadow: 5px 5px #888888;
 }
 
 .bookAuthors {
@@ -28,23 +18,34 @@
 }
 
 .searchBox {
+  display: block;
+  /* position: absolute; */
+  width: 100%;
+  height: 50px;
   padding: 10px;
-  margin: 10px;
-  border-style: solid;
+  /* margin: 10px; */
+  text-align: center;
+
+  background-color: grey;
+  /* border-style: solid;
   border-width: 1px;
-  border-color: black;
+  border-color: black; */
 }
 
-.resultBox {
+.resultsBox {
+  margin-top: 250px;
   padding: 10px;
   margin: 10px;
-  border-style: solid;
+  /* border-style: solid;
   border-width: 1px;
-  border-color: black;
+  border-color: black; */
 }
 
 .topbanner {
-  padding: 10px;
-  margin: 10px;
+  width: 100%;
+  margin-top: 10px;
+  /* padding: 10px; */
+  /* position: fixed; */
+  /* margin: 10px; */
   text-align: center;
 }

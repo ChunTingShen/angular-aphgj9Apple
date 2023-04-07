@@ -8,12 +8,5 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   constructor() {}
 
-  keyword = '';
-
-  send(keyword) {
-    console.log('Sending!');
-    this.keyword = keyword;
-  }
-
   ngOnInit() {}
 }
